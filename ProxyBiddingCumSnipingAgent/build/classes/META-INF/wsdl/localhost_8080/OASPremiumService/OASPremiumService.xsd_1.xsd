@@ -1,0 +1,241 @@
+<?xml version='1.0' encoding='UTF-8'?><!-- Published by JAX-WS RI (http://jax-ws.java.net). RI's version is Metro/2.3.2-b608 (trunk-7979; 2015-01-21T12:50:19+0000) JAXWS-RI/2.2.11-b150120.1832 JAXWS-API/2.2.12 JAXB-RI/2.2.12-b141219.1637 JAXB-API/2.2.13-b141020.1521 svn-revision#unknown. --><xs:schema xmlns:tns="http://ws.ejb/" xmlns:xs="http://www.w3.org/2001/XMLSchema" version="1.0" targetNamespace="http://ws.ejb/">
+
+<xs:element name="AuctionListingNotFoundException" type="tns:AuctionListingNotFoundException"/>
+
+<xs:element name="CustomerNotFoundException" type="tns:CustomerNotFoundException"/>
+
+<xs:element name="configureProxyBiddingForAuctionListing" type="tns:configureProxyBiddingForAuctionListing"/>
+
+<xs:element name="configureProxyBiddingForAuctionListingResponse" type="tns:configureProxyBiddingForAuctionListingResponse"/>
+
+<xs:element name="configureSnipingForAuctionListing" type="tns:configureSnipingForAuctionListing"/>
+
+<xs:element name="configureSnipingForAuctionListingResponse" type="tns:configureSnipingForAuctionListingResponse"/>
+
+<xs:element name="premiumRegistration" type="tns:premiumRegistration"/>
+
+<xs:element name="premiumRegistrationResponse" type="tns:premiumRegistrationResponse"/>
+
+<xs:element name="remoteBrowseAllAuctionListings" type="tns:remoteBrowseAllAuctionListings"/>
+
+<xs:element name="remoteBrowseAllAuctionListingsResponse" type="tns:remoteBrowseAllAuctionListingsResponse"/>
+
+<xs:element name="remoteLogin" type="tns:remoteLogin"/>
+
+<xs:element name="remoteLoginResponse" type="tns:remoteLoginResponse"/>
+
+<xs:element name="remoteViewAuctionListingDetails" type="tns:remoteViewAuctionListingDetails"/>
+
+<xs:element name="remoteViewAuctionListingDetailsResponse" type="tns:remoteViewAuctionListingDetailsResponse"/>
+
+<xs:element name="remoteViewCreditBalance" type="tns:remoteViewCreditBalance"/>
+
+<xs:element name="remoteViewCreditBalanceResponse" type="tns:remoteViewCreditBalanceResponse"/>
+
+<xs:element name="remoteViewWonAuctionListings" type="tns:remoteViewWonAuctionListings"/>
+
+<xs:element name="remoteViewWonAuctionListingsResponse" type="tns:remoteViewWonAuctionListingsResponse"/>
+
+<xs:complexType name="premiumRegistration">
+<xs:sequence>
+<xs:element name="username" type="xs:string" minOccurs="0"/>
+<xs:element name="password" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="premiumRegistrationResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:boolean" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="configureSnipingForAuctionListing">
+<xs:sequence>
+<xs:element name="arg0" type="xs:int"/>
+<xs:element name="arg1" type="xs:long" minOccurs="0"/>
+<xs:element name="arg2" type="xs:double"/>
+<xs:element name="arg3" type="xs:long" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="configureSnipingForAuctionListingResponse">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="AuctionListingNotFoundException">
+<xs:sequence>
+<xs:element name="message" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="remoteViewWonAuctionListings">
+<xs:sequence>
+<xs:element name="arg0" type="xs:long" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="remoteViewWonAuctionListingsResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:auctionListing" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="auctionListing">
+<xs:sequence>
+<xs:element name="active" type="xs:boolean" minOccurs="0"/>
+<xs:element name="creditTransaction" type="tns:creditTransaction" minOccurs="0"/>
+<xs:element name="currentBidAmt" type="xs:double" minOccurs="0"/>
+<xs:element name="customer" type="tns:customer" minOccurs="0"/>
+<xs:element name="deliveryAddress" type="tns:address" minOccurs="0"/>
+<xs:element name="endDateTime" type="xs:dateTime" minOccurs="0"/>
+<xs:element name="itemName" type="xs:string" minOccurs="0"/>
+<xs:element name="listingId" type="xs:long" minOccurs="0"/>
+<xs:element name="proxyBids" type="tns:proxyBid" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="requireIntervention" type="xs:boolean" minOccurs="0"/>
+<xs:element name="reservePrice" type="xs:double" minOccurs="0"/>
+<xs:element name="startBidAmt" type="xs:double" minOccurs="0"/>
+<xs:element name="startDateTime" type="xs:dateTime" minOccurs="0"/>
+<xs:element name="winningBid" type="tns:bid" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="creditTransaction">
+<xs:sequence>
+<xs:element name="amtCredit" type="xs:double" minOccurs="0"/>
+<xs:element name="auctionListing" type="tns:auctionListing" minOccurs="0"/>
+<xs:element name="creditPackage" type="tns:creditPackage" minOccurs="0"/>
+<xs:element name="customer" type="tns:customer" minOccurs="0"/>
+<xs:element name="transactionType" type="tns:transactionTypeEnum" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="creditPackage">
+<xs:sequence>
+<xs:element name="amtCredit" type="xs:double"/>
+<xs:element name="creditPackageId" type="xs:long" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="customer">
+<xs:sequence>
+<xs:element name="amtCredit" type="xs:double"/>
+<xs:element name="auctionListingWon" type="tns:auctionListing" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="bidListing" type="tns:bid" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="creditTransactionList" type="tns:creditTransaction" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="customerId" type="xs:long" minOccurs="0"/>
+<xs:element name="email" type="xs:string" minOccurs="0"/>
+<xs:element name="firstName" type="xs:string" minOccurs="0"/>
+<xs:element name="identificationNumber" type="xs:string" minOccurs="0"/>
+<xs:element name="isPremium" type="xs:boolean" minOccurs="0"/>
+<xs:element name="lastName" type="xs:string" minOccurs="0"/>
+<xs:element name="mobileNumber" type="xs:int"/>
+<xs:element name="passWord" type="xs:string" minOccurs="0"/>
+<xs:element name="proxyBids" type="tns:proxyBid" nillable="true" minOccurs="0" maxOccurs="unbounded"/>
+<xs:element name="userName" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="bid">
+<xs:sequence>
+<xs:element name="auctionListing" type="tns:auctionListing" minOccurs="0"/>
+<xs:element name="bidAmt" type="xs:double"/>
+<xs:element name="bidId" type="xs:long" minOccurs="0"/>
+<xs:element name="customer" type="tns:customer" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="proxyBid">
+<xs:sequence>
+<xs:element name="auctionListing" type="tns:auctionListing" minOccurs="0"/>
+<xs:element name="customer" type="tns:customer" minOccurs="0"/>
+<xs:element name="maxAmount" type="xs:double" minOccurs="0"/>
+<xs:element name="proxyBidId" type="xs:long" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="address">
+<xs:sequence>
+<xs:element name="address" type="xs:string" minOccurs="0"/>
+<xs:element name="addressId" type="xs:long" minOccurs="0"/>
+<xs:element name="customer" type="tns:customer" minOccurs="0"/>
+<xs:element name="disabled" type="xs:boolean"/>
+<xs:element name="isDeliveryAddress" type="xs:boolean"/>
+<xs:element name="winningBid" type="tns:bid" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="remoteLogin">
+<xs:sequence>
+<xs:element name="username" type="xs:string" minOccurs="0"/>
+<xs:element name="password" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="remoteLoginResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:customer" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="remoteViewAuctionListingDetails">
+<xs:sequence>
+<xs:element name="arg0" type="xs:long" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="remoteViewAuctionListingDetailsResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:auctionListing" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="remoteViewCreditBalance">
+<xs:sequence>
+<xs:element name="arg0" type="xs:long" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="remoteViewCreditBalanceResponse">
+<xs:sequence>
+<xs:element name="return" type="xs:double" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="CustomerNotFoundException">
+<xs:sequence>
+<xs:element name="message" type="xs:string" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="configureProxyBiddingForAuctionListing">
+<xs:sequence>
+<xs:element name="arg0" type="tns:auctionListing" minOccurs="0"/>
+<xs:element name="arg1" type="tns:customer" minOccurs="0"/>
+<xs:element name="arg2" type="xs:double" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="configureProxyBiddingForAuctionListingResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:proxyBid" minOccurs="0"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:complexType name="remoteBrowseAllAuctionListings">
+<xs:sequence/>
+</xs:complexType>
+
+<xs:complexType name="remoteBrowseAllAuctionListingsResponse">
+<xs:sequence>
+<xs:element name="return" type="tns:auctionListing" minOccurs="0" maxOccurs="unbounded"/>
+</xs:sequence>
+</xs:complexType>
+
+<xs:simpleType name="transactionTypeEnum">
+<xs:restriction base="xs:string">
+<xs:enumeration value="PURCHASE"/>
+<xs:enumeration value="BIDDING"/>
+<xs:enumeration value="OUTBIDDED_REFUND"/>
+</xs:restriction>
+</xs:simpleType>
+</xs:schema>
